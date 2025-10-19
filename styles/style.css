@@ -1,64 +1,66 @@
-/* Importar fuente Kumbh Sans desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
-
-/* Variables CSS para colores del style guide */
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 :root {
-  /* Primary Colors */
-  --orange: hsl(26, 100%, 55%);
-  --pale-orange: hsl(25, 100%, 94%);
-  /* Neutral Colors */
-  --very-dark-blue: hsl(220, 13%, 13%);
-  --dark-grayish-blue: hsl(219, 9%, 45%);
-  --grayish-blue: hsl(220, 14%, 75%);
-  --light-grayish-blue: hsl(223, 64%, 98%);
-  --white: hsl(0, 0%, 100%);
-  --black-75: hsla(0, 0%, 0%, 0.75);
-  /* Para lightbox background */
-  /* Typography */
-  --font-family: 'Kumbh Sans', sans-serif;
-  --font-size-body: 16px;
-  --font-weight-normal: 400;
-  --font-weight-bold: 700;
+  --Orange: hsl(26, 100%, 55%);
+  --Pale-orange: hsl(25, 100%, 94%);
+  --Very-dark-blue: hsl(220, 13%, 13%);
+  --Dark-grayish-blue: hsl(219, 9%, 45%);
+  --Grayish-blue: hsl(220, 14%, 75%);
+  --Light-grayish-blue: hsl(223, 64%, 98%);
+  --White: hsl(0, 0%, 100%);
+  /* (with 75% opacity for lightbox background) */
+  --Black: hsl(0, 0%, 0%);
 }
-
-/* Reset básico y configuración de fuente */
+/* Default styles */
 * {
-  margin: 0;
+  font-family: "Kumbh Sans", sans-serif;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-normal);
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Reset de estilos por defecto para enlaces */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover,
+a:focus,
+a:active,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Estilos de focus accesibles para navegación por teclado */
+a:focus-visible {
+  outline: 2px solid var(--Orange);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 img {
   max-width: 100%;
 }
-
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .container {
   max-width: 1000px;
   height: 100vh;
 }
-
 /* visibility actions */
-
 .hidden {
   display: none;
 }
-
 .invisible {
   display: none !important;
 }
-
-/* navbar styles */
-
+/* Navbar styles */
 nav {
   height: 80px;
   display: flex;
@@ -68,124 +70,117 @@ nav {
   flex: 1;
   margin: 0 auto;
 }
-
 .nav_container {
   display: flex;
   width: 100%;
   justify-content: space-between;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
 }
-
 .nav_left-sec {
   display: flex;
   align-items: center;
 }
-
 .nav_links {
   margin-left: 3rem;
   list-style: none;
   display: flex;
   align-items: center;
   gap: 2rem;
-  color: var(--dark-grayish-blue);
+  color: var(--Dark-grayish-blue);
 }
 
-.nav_link {
+.nav_link,
+.nav_links a {
   cursor: pointer;
   height: 100%;
   position: relative;
+  color: var(--Dark-grayish-blue);
+  transition: color 0.2s ease;
 }
 
-.nav_link:hover::after {
+.nav_link:hover,
+.nav_links a:hover {
+  color: var(--Black);
+}
+
+.nav_link:hover::after,
+.nav_links a:hover::after {
   content: "";
   position: absolute;
   bottom: -35px;
   border-radius: 10px;
   display: block;
-  background-color: var(--orange);
+  background-color: var(--Orange);
   width: 100%;
   height: 5px;
 }
-
 .nav_right-sec {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
-
 .avatar,
 .cart {
   cursor: pointer;
 }
-
 .avatar {
   width: 50px;
   margin: 1rem 0;
 }
-
 .avatar:hover {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--Orange);
   border-radius: 50%;
 }
-
 .cart:hover {
   filter: brightness(0%);
 }
-
 .cart-btn {
   background-color: transparent;
   border: none;
 }
-
 .indicator {
-  background-color: var(--orange);
+  background-color: orange;
   padding: 0.2rem 0.5rem;
   border-radius: 50%;
-  color: var(--white);
+  color: var(--White);
   position: absolute;
   top: -15px;
   right: -10px;
 }
 
-/* cart styles */
+/* Cart styles */
 .cart-container {
   position: relative;
 }
-
 .cart-wrp {
-  position: relative;
+  position: absolute;
   left: -260px;
   top: 50px;
   z-index: 30;
   width: 350px;
   height: 250px;
-  background-color: var(--white);
-  box-shadow: 0 0 15px 0 #000000;
+  background-color: var(--White);
+  box-shadow: 0px 0px 15px 0px #000000;
   border-radius: 10px;
 }
-
 .cart-heading {
   font-size: 1.1rem;
   font-weight: 700;
   padding: 1rem;
 }
-
 .divider {
   width: 100%;
   height: 1px;
   background-color: rgba(128, 128, 128, 0.616);
 }
-
 .empty {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .cart-content {
   height: 200px;
 }
-
 .product {
   display: flex;
   flex-direction: column;
@@ -193,47 +188,39 @@ nav {
   height: 100%;
   justify-content: space-around;
 }
-
 .cart-content .product div {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .product-title {
-  color: var(--dark-grayish-blue);
+  color: var(--Dark-grayish-blue);
 }
-
 .product-info {
   gap: 1rem;
   display: flex;
   flex-direction: column;
   text-align: start;
 }
-
 .product-info p:last-child {
   margin-right: auto;
-  color: var(--dark-grayish-blue);
+  color: var(--Dark-grayish-blue);
 }
-
 .product-info b {
-  color: var(--black-75);
+  color: var(--Black);
 }
-
 .cart-content img {
   width: 60px;
   border-radius: 6px;
 }
-
 .delete-btn {
   background-color: transparent;
   border: none;
   width: 18px;
   cursor: pointer;
 }
-
 .checkout-btn {
-  background-color: var(--orange);
+  background-color: var(--Orange);
   border-radius: 8px;
   border: none;
   color: white;
@@ -243,9 +230,7 @@ nav {
   padding: 1rem;
   cursor: pointer;
 }
-
-/* main section */
-
+/* Main section */
 main {
   display: flex;
   height: calc(100vh - 150px);
@@ -253,101 +238,85 @@ main {
   justify-content: space-between;
   margin-inline: 2rem;
 }
-
 .thumbnails {
   display: flex;
   flex-direction: column;
 }
-
 .main-thumbnail {
   border-radius: 10px;
   width: 1100px;
   cursor: pointer;
 }
-
 .preview {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
 }
-
 .preview img {
   width: 90px;
   border-radius: 10px;
   cursor: pointer;
 }
-
 .preview img:hover {
   opacity: 60%;
 }
 
 .selected {
-  border: 2px solid var(--orange);
+  border: 2px solid var(--Orange);
   opacity: 50%;
 }
-
 .content {
   margin-left: 3rem;
 }
-
 .company {
-  color: var(--orange);
+  color: var(--Orange);
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 1rem;
 }
-
 .title {
   font-size: 2.5rem;
   margin-bottom: 2rem;
 }
-
 .info {
-  color: var(--dark-grayish-blue);
+  color: var(--Dark-grayish-blue);
   line-height: 1.5;
   margin-bottom: 1rem;
 }
-
 .price {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
   margin-bottom: 1rem;
 }
-
 .new-price {
   display: flex;
-  align-content: center;
+  align-items: center;
 }
-
 .new-price p {
   font-size: 1.5rem;
   font-weight: 700;
 }
-
 .new-price span {
   margin-left: 1rem;
-  background-color: var(--pale-orange);
+  background-color: var(--Pale-orange);
   padding: 0.3rem;
   border-radius: 6px;
-  color: var(--orange);
+  color: var(--Orange);
   font-weight: 700;
 }
-
 .old-price {
-  color: var(--grayish-blue);
+  color: var(--Grayish-blue);
   text-decoration: line-through;
 }
-
 .buttons {
   display: flex;
-  align-content: center;
+  align-items: center;
   width: 100%;
   margin-top: 2rem;
 }
-
 .amount-btn {
-  background-color: var(--light-grayish-blue);
+  background-color: var(--Light-grayish-blue);
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -355,7 +324,6 @@ main {
   border-radius: 7px;
   justify-content: space-between;
 }
-
 .amount-btn button {
   background-color: transparent;
   border: none;
@@ -364,17 +332,15 @@ main {
   justify-content: center;
   cursor: pointer;
 }
-
 .amount {
   font-weight: 700;
 }
-
 .add_btn {
   cursor: pointer;
   width: 65%;
   margin-left: 1rem;
-  background-color: var(--orange);
-  color: var(--white);
+  background-color: var(--Orange);
+  color: white;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -385,15 +351,13 @@ main {
   border-radius: 7px;
   padding: 1rem;
 }
-
 .add_btn:hover {
   opacity: 70%;
 }
-
 .add_btn img {
   filter: brightness(5);
 }
-
+/* Lightbox styles */
 .lightbox {
   position: absolute;
   top: 0;
@@ -406,65 +370,55 @@ main {
   flex-direction: column;
   justify-content: center;
 }
-
 .lightbox-container {
   position: relative;
 }
-
 .close-lightbox {
   position: absolute;
   top: -40px;
-  right: 10;
-  color: var(--orange);
+  right: 10px;
+  color: orange;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
-
 .close-lightbox:hover img {
   filter: sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(1);
 }
-
 .close-lightbox img {
   width: 20px;
   height: 20px;
 }
-
 .lightbox .main-thumbnail {
   width: 400px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
+  /* visibility actions */
   .hidden {
     display: flex;
   }
-
   .invisible-mob {
-    display: none !important;
+    display: none;
   }
-
-  /* default */
+  /* default styles */
   body {
     position: relative;
   }
-
+  /* Navbar styles */
   .nav_container {
     padding-inline: 1rem;
   }
-
   .nav_left-sec {
     align-items: center;
     gap: 1rem;
   }
-
   .menu {
     cursor: pointer;
   }
-
   .close-btn {
     cursor: pointer;
   }
-
   .overlay {
     position: absolute;
     z-index: 999;
@@ -472,11 +426,10 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--black-75);
+    background-color: var(--Black);
     opacity: 75%;
     display: none;
   }
-
   .nav_links {
     position: absolute;
     top: 0;
@@ -490,33 +443,28 @@ main {
     margin: 0;
     display: none;
     flex-direction: column;
-    background-color: var(--white);
+    background-color: var(--White);
   }
-
-  .nav_link:hover::after {
+  .nav_link:hover::after,
+  .nav_links a:hover::after {
     bottom: -15px;
   }
-
   .active {
     display: flex;
   }
-
-  .nav_link {
+  .nav_link,
+  .nav_links a {
     height: fit-content;
     font-weight: 700;
-    color: var(--black-75);
+    color: var(--Black);
   }
-
   .nav_right-sec {
     gap: 1.5rem;
   }
-
   .avatar {
     width: 30px;
   }
-
-  /* main */
-
+  /* Main section */
   main {
     flex-direction: column;
     align-items: center;
@@ -524,65 +472,55 @@ main {
     height: 100%;
     margin-bottom: 4rem;
   }
-
   .thumbnails {
     height: 40%;
   }
-
   .content {
     margin: 2rem;
+    height: 50%;
   }
-
   .preview {
     display: none;
   }
-
   .mobile-thumb {
     position: relative;
     display: flex;
     overflow-x: hidden;
     min-width: 95vw;
-    margin-top: -1.5rem;
+    margin-top: -0.5rem;
     z-index: 1;
   }
-
   .mobile-thumb img {
     object-fit: cover;
     width: 100%;
     z-index: 1;
   }
-
   .title {
     font-size: 2.2rem;
   }
-
   .price {
     flex-direction: row;
     align-items: center;
-    justify-self: space-between;
+    justify-content: space-between;
   }
-
   .buttons {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
   }
-
   .amount-btn {
     width: 100%;
   }
-
   .add_btn {
     width: 100%;
     margin-left: 0;
   }
-
   #next {
     position: absolute;
     right: 10%;
     top: 50%;
     border: none;
-    background-color: var(--white);
+    background-color: var(--White);
     width: 50px;
     height: 50px;
     display: flex;
@@ -593,13 +531,12 @@ main {
     cursor: pointer;
     z-index: 10;
   }
-
   #previous {
     position: absolute;
     left: 10%;
     top: 50%;
     border: none;
-    background-color: var(--white);
+    background-color: var(--White);
     width: 50px;
     height: 50px;
     display: flex;
@@ -610,8 +547,21 @@ main {
     cursor: pointer;
     z-index: 10;
   }
-
-  #next img, #previous img {
+  #previous img,
+  #next img {
     width: 15px;
   }
+}
+
+/* Clase para contenido accesible solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
