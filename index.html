@@ -181,23 +181,23 @@
         </p>
         <div class="price">
           <div class="new-price">
-            <p class="now">$125.00</p>
-            <span>50%</span>
+            <p class="now" aria-label="Current price $125.00">$125.00</p>
+            <span aria-label="50% discount">50%</span>
           </div>
-          <p class="old-price">$250.00</p>
+          <p class="old-price" aria-label="Original price $250.00">$250.00</p>
         </div>
         <div class="buttons">
           <div class="amount-btn">
-            <button id="minus">
-              <img src="./images/icon-minus.svg" alt="minus" />
+            <button id="minus" aria-label="Decrease quantity" type="button">
+              <img src="./images/icon-minus.svg" alt="" />
             </button>
             <p class="amount">0</p>
-            <button id="plus">
-              <img src="./images/icon-plus.svg" alt="plus" />
+            <button id="plus" aria-label="Increase quantity" type="button">
+              <img src="./images/icon-plus.svg" alt="" />
             </button>
           </div>
-          <button class="add_btn">
-            <img src="./images/icon-cart.svg" alt="cart" />
+          <button class="add_btn" type="button">
+            <img src="./images/icon-cart.svg" alt="" />
             Add to cart
           </button>
         </div>
@@ -205,15 +205,17 @@
     </main>
   </div>
   <!-- Lightbox -->
-  <div class="lightbox invisible">
+  <div class="lightbox invisible" aria-hidden="true">
     <div class="lightbox-container">
-      <button class="close-lightbox"><img src="./images/icon-close.svg" alt="close"></button>
-      <img src="./images/image-product-1.jpg" alt="product" class="main-thumbnail invisible-mob" />
+      <button class="close-lightbox" aria-label="Close lightbox" type="button">
+        <img src="./images/icon-close.svg" alt="" />
+      </button>
+      <img src="./images/image-product-1.jpg" alt="Product image - large view" class="main-thumbnail invisible-mob" />
       <div class="preview">
-        <img class="selected" src="./images/image-product-1-thumbnail.jpg" alt="" />
-        <img src="./images/image-product-2-thumbnail.jpg" alt="" />
-        <img src="./images/image-product-3-thumbnail.jpg" alt="" />
-        <img src="./images/image-product-4-thumbnail.jpg" alt="" />
+        <img class="selected" src="./images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" />
+        <img src="./images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" />
+        <img src="./images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" />
+        <img src="./images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" />
       </div>
     </div>
   </div>
