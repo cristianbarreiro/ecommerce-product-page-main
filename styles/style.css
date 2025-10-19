@@ -152,6 +152,11 @@ nav {
 .cart-container {
   position: relative;
 }
+
+.cart-container img {
+  cursor: pointer;
+}
+
 .cart-wrp {
   position: absolute;
   left: -260px;
