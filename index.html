@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="E-commerce product page for Fall Limited Edition Sneakers by Sneaker Company. Shop premium quality casual sneakers with durable rubber sole." />
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-  <title>Frontend Mentor | E-commerce product page</title>
+  <title>Fall Limited Edition Sneakers - Sneaker Company | E-commerce</title>
   <link rel="stylesheet" href="styles/style.css" />
   <script src="js/app.js" defer></script>
 
@@ -14,59 +15,158 @@
 <body>
   <div class="container">
     <!-- navbar -->
-    <nav>
-      <div class="nav_container">
-        <div class="nav_left-sec">
-          <img src="./images/icon-menu.svg" id="menu-btn" alt="menu" class="hidden menu" />
-          <img src="./images/logo.svg" alt="logo" class="nav_logo" />
-          <div class="overlay"></div>
-          <ul class="nav_links">
-            <img src="./images/icon-close.svg" alt="close" class="close-btn hidden" />
-            <li class="nav_link">Collections</li>
-            <li class="nav_link">Men</li>
-            <li class="nav_link">Women</li>
-            <li class="nav_link">About</li>
-            <li class="nav_link">Contact</li>
-          </ul>
-        </div>
-        <div class="nav_right-sec">
-          <!-- Cart -->
-          <div class="cart-container">
-            <button class="cart-btn">
-              <span class="indicator"></span>
-              <img src="./images/icon-cart.svg" alt="cart" class="cart" />
+    <header>
+      <nav role="navigation" aria-label="Main navigation">
+        <div class="nav_container">
+          <div class="nav_left-sec">
+            <button 
+              id="menu-btn" 
+              class="hidden menu" 
+              aria-label="Open mobile navigation menu"
+              aria-expanded="false"
+              aria-controls="mobile-nav-menu"
+              aria-haspopup="true"
+              type="button">
+              <img src="./images/icon-menu.svg" alt="" role="presentation" />
             </button>
-            <div class="cart-wrp invisible">
-              <p class="cart-heading">Cart</p>
-              <div class="divider"></div>
-              <div class="cart-content empty">
-                <p>Your cart is empty</p>
+            <img src="./images/logo.svg" alt="Sneaker Company logo" class="nav_logo" />
+            <div class="overlay" aria-hidden="true"></div>
+            <ul class="nav_links" id="mobile-nav-menu" role="menu" aria-label="Navigation links">
+              <li role="none">
+                <button 
+                  class="close-btn hidden" 
+                  aria-label="Close mobile navigation menu"
+                  type="button">
+                  <img src="./images/icon-close.svg" alt="" role="presentation" />
+                </button>
+              </li>
+              <li role="menuitem" class="nav_link">
+                <a href="#collections" tabindex="0">Collections</a>
+              </li>
+              <li role="menuitem" class="nav_link">
+                <a href="#men" tabindex="0">Men</a>
+              </li>
+              <li role="menuitem" class="nav_link">
+                <a href="#women" tabindex="0">Women</a>
+              </li>
+              <li role="menuitem" class="nav_link">
+                <a href="#about" tabindex="0">About</a>
+              </li>
+              <li role="menuitem" class="nav_link">
+                <a href="#contact" tabindex="0">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav_right-sec">
+            <!-- Cart -->
+            <div class="cart-container">
+              <button 
+                class="cart-btn"
+                aria-label="Open shopping cart"
+                aria-expanded="false"
+                aria-controls="cart-dropdown"
+                aria-describedby="cart-indicator"
+                type="button">
+                <span 
+                  class="indicator" 
+                  id="cart-indicator"
+                  role="status"
+                  aria-live="polite"
+                  aria-label="Cart items count"
+                  style="display: none;"></span>
+                <img src="./images/icon-cart.svg" alt="" role="presentation" />
+              </button>
+              <div 
+                class="cart-wrp invisible" 
+                id="cart-dropdown"
+                role="region"
+                aria-label="Shopping cart contents"
+                aria-hidden="true">
+                <h2 class="cart-heading">Cart</h2>
+                <div class="divider" role="separator" aria-hidden="true"></div>
+                <div 
+                  class="cart-content empty"
+                  role="status"
+                  aria-live="polite"
+                  aria-label="Shopping cart items">
+                  <p>Your cart is empty</p>
+                </div>
               </div>
             </div>
+            <img src="./images/image-avatar.png" alt="User profile avatar" class="avatar" />
           </div>
-          <img src="./images/image-avatar.png" alt="avatar" class="avatar" />
         </div>
-      </div>
-    </nav>
-    <main>
+      </nav>
+    </header>
+    <main role="main" aria-label="Product showcase">
       <!-- thumbnails -->
-      <section class="thumbnails">
-        <img src="./images/image-product-1.jpg" alt="product" class="main-thumbnail invisible-mob" />
-        <div class="mobile-thumb hidden">
-          <img src="./images/image-product-1.jpg" class="thumb-mob" alt="product" />
-          <button id="next">
-            <img src="./images/icon-next.svg" alt="next" />
+      <section class="thumbnails" aria-label="Product image gallery">
+        <figure>
+          <img 
+            src="./images/image-product-1.jpg" 
+            alt="Fall Limited Edition Sneakers - Main product view showing white and orange athletic shoe" 
+            class="main-thumbnail invisible-mob"
+            tabindex="0"
+            role="button"
+            aria-label="Open product image lightbox" />
+        </figure>
+        <div class="mobile-thumb hidden" role="region" aria-label="Mobile product image carousel">
+          <img 
+            src="./images/image-product-1.jpg" 
+            class="thumb-mob" 
+            alt="Fall Limited Edition Sneakers product image"
+            aria-describedby="carousel-instructions" />
+          <button 
+            id="next"
+            aria-label="View next product image"
+            type="button">
+            <img src="./images/icon-next.svg" alt="" role="presentation" />
           </button>
-          <button id="previous">
-            <img src="./images/icon-previous.svg" alt="previos" />
+          <button 
+            id="previous"
+            aria-label="View previous product image"
+            type="button">
+            <img src="./images/icon-previous.svg" alt="" role="presentation" />
           </button>
+          <div id="carousel-instructions" class="sr-only">
+            Use the next and previous buttons to browse through product images
+          </div>
         </div>
-        <div>
+        <div role="group" aria-label="Product thumbnail selector">
           <div class="preview">
-            <img class="selected" src="./images/image-product-1-thumbnail.jpg" alt="" />
-            <img src="./images/image-product-2-thumbnail.jpg" alt="" />
-            <img src="./images/image-product-3-thumbnail.jpg" alt="" />
-            <img src="./images/image-product-4-thumbnail.jpg" alt="" />
+            <img 
+              class="selected" 
+              src="./images/image-product-1-thumbnail.jpg" 
+              alt="Product image 1 - main view"
+              role="button"
+              tabindex="0"
+              aria-label="View product image 1 - main view"
+              aria-pressed="true"
+              data-image="1" />
+            <img 
+              src="./images/image-product-2-thumbnail.jpg" 
+              alt="Product image 2 - side angle"
+              role="button"
+              tabindex="0"
+              aria-label="View product image 2 - side angle"
+              aria-pressed="false"
+              data-image="2" />
+            <img 
+              src="./images/image-product-3-thumbnail.jpg" 
+              alt="Product image 3 - top view"
+              role="button"
+              tabindex="0"
+              aria-label="View product image 3 - top view"
+              aria-pressed="false"
+              data-image="3" />
+            <img 
+              src="./images/image-product-4-thumbnail.jpg" 
+              alt="Product image 4 - detail view"
+              role="button"
+              tabindex="0"
+              aria-label="View product image 4 - detail view"
+              aria-pressed="false"
+              data-image="4" />
           </div>
         </div>
       </section>
